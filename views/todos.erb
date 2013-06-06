@@ -1,0 +1,31 @@
+
+<h2> Don't forget to do this stuff, please. </h2>
+<table class="table table-striped"> 
+	<% @todos.each  do |t|  if t.done_time == nil %>
+  <tr>
+  	 <td> <form action="/todos_archive/<%= t.id %>" method="post" ><input type="hidden" name="id" val="<%= t.id %>"> <button class="btn btn-primary">DONE! </button></form> </td>
+    <td> <strong><%= "#{t.todo_text}" %><strong> </td>
+    <td> <%= "Due: #{t.due_date}" %> </td>
+    <td> <a class="btn btn-success" href="/todos/<%= t.id %>"> Edit </a> </td>
+       
+    <td><form action="/todos_destroy/<%= t.id %>" method="post" > <button class="btn btn-danger">Delete </button></form> </td>
+  </tr>
+  <% end;end %>
+</table>
+<a class=" centered btn btn-info btn-large" href="/todos/new"> Create new todo item </a>
+
+<div id="archived">
+	<h3> You can feel great about these tasks you've completed. </h3>
+	<table class="table table-striped"> 
+	<% @todos.each  do |t|  if t.done_time != nil %>
+  <tr>
+  	<td> <form> <button class="btn  disabled">DONE! </button></form> </td> 
+    <td> <strong> <%= "#{t.todo_text}" %> </strong> </td>
+    <td> <%= "Completed: #{t.done_time}" %> </td>
+   
+  </tr>
+  <% end;end %>
+</table>
+
+	</div>
+

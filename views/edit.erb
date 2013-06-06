@@ -1,0 +1,8 @@
+
+<form method="post" action="/todos/<%= @todo.id %>">
+  <h2> Edit todo item</h2>
+  <label> What do you need to do? <input type="text" name="todo_text" value="<%= @todo.todo_text %>"> </label>
+
+  <label> When should it be done? (YYYY-MM-DD) <input type="text" name="due_date" value="<%= @todo.due_date %>"> </label>
+  <button> Save </button>
+</form>

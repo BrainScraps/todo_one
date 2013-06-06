@@ -1,0 +1,12 @@
+<% @todos.each  do |t| %>
+
+<table> 
+  <tr>
+    <td> <%= "#{t.todo_text}" %> </td>
+    <td> <%= " - Due: #{t.due_date}" %> </td>
+    <td> <a class="btn btn-info"> Edit </a> </td>
+       
+    <td><form action="/todos/<%= t.id %>" method="delete"> <button >Delete </button></form> </td>
+  </tr>
+</table>
+<% end %>
